@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+    options {
+        skipDefaultCheckout(true)
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+                sh 'echo "Checkout code: $BRANCH_NAME"'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                sh 'echo "Compile application"'
+            }
+        }
+
+        stage('Review') {
+            steps {
+                sh 'echo "Review application"'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'echo "Test application"'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                sh 'echo "Package application"'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deployment application"'
+            }
+        }
+    }
+}
